@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Campus Parking Admin Dashboard</title>
+     <script src="https://cdn.tailwindcss.com"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+     <!-- Mobile Header Component -->
+     <header class="lg:hidden bg-white shadow-sm p-4 flex justify-between items-center">
+          <h1 class="text-xl font-semibold">Dashboard</h1>
+          <button id="menu-toggle" class="text-gray-500 focus:outline-none">
+               <i class="fas fa-bars text-2xl"></i>
+          </button>
+     </header>
+
+     <div class="flex h-screen">
+          <!-- Sidebar Component -->
+          <aside id="sidebar"
+               class="bg-blue-800 text-white w-64 py-6 flex flex-col fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out z-50">
+               <div class="px-6 mb-8">
+                    <h2 class="text-2xl font-bold">Parking System</h2>
+                    <p class="text-sm text-blue-200">Admin Dashboard</p>
+               </div>
+               <nav class="flex-1 px-3">
+                    <a href="#" class="flex items-center px-3 py-3 bg-blue-900 rounded-md mb-1">
+                         <i class="fas fa-tachometer-alt mr-3"></i>
+                         <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-3 text-blue-200 hover:bg-blue-700 rounded-md mb-1">
+                         <i class="fas fa-car mr-3"></i>
+                         <span>Vehicles</span>
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-3 text-blue-200 hover:bg-blue-700 rounded-md mb-1">
+                         <i class="fas fa-parking mr-3"></i>
+                         <span>Parking Areas</span>
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-3 text-blue-200 hover:bg-blue-700 rounded-md mb-1">
+                         <i class="fas fa-exchange-alt mr-3"></i>
+                         <span>Transactions</span>
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-3 text-blue-200 hover:bg-blue-700 rounded-md mb-1">
+                         <i class="fas fa-chart-bar mr-3"></i>
+                         <span>Reports</span>
+                    </a>
+               </nav>
+               <div class="px-6 py-4 border-t border-blue-700">
+                    <a href="#" class="flex items-center text-blue-200 hover:text-white">
+                         <i class="fas fa-sign-out-alt mr-3"></i>
+                         <span>Logout</span>
+                    </a>
+               </div>
+          </aside>
+
+          <!-- Main Content -->
+          <main class="flex-1 overflow-y-auto">
+               <!-- Top Bar Component -->
+               <div class="hidden lg:block bg-white shadow-sm p-4 lg:flex justify-between items-center">
+                    <h1 class="text-xl font-semibold">Dashboard</h1>
+                    <div class="flex items-center space-x-4">
+                         <button class="bg-gray-100 p-2 rounded-full">
+                              <i class="fas fa-bell text-gray-500"></i>
+                         </button>
+                         <div class="flex items-center">
+                              <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">
+                                   <span>A</span>
+                              </div>
+                              <span class="ml-2">Admin User</span>
+                         </div>
+                    </div>
+               </div>
+
+               <!-- Dashboard Content -->
+               <div class="p-6">
+                    <!-- KPI Cards Component -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                         <div class="bg-white rounded-lg shadow p-6">
+                              <div class="flex items-center">
+                                   <div class="bg-blue-100 p-3 rounded-full">
+                                        <i class="fas fa-parking text-blue-600"></i>
+                                   </div>
+                                   <div class="ml-4">
+                                        <h3 class="text-gray-500 text-sm">Parking Areas</h3>
+                                        <p class="text-2xl font-bold">5</p>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="bg-white rounded-lg shadow p-6">
+                              <div class="flex items-center">
+                                   <div class="bg-green-100 p-3 rounded-full">
+                                        <i class="fas fa-car text-green-600"></i>
+                                   </div>
+                                   <div class="ml-4">
+                                        <h3 class="text-gray-500 text-sm">Total Vehicles</h3>
+                                        <p class="text-2xl font-bold">120</p>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="bg-white rounded-lg shadow p-6">
+                              <div class="flex items-center">
+                                   <div class="bg-purple-100 p-3 rounded-full">
+                                        <i class="fas fa-ticket-alt text-purple-600"></i>
+                                   </div>
+                                   <div class="ml-4">
+                                        <h3 class="text-gray-500 text-sm">Today's Transactions</h3>
+                                        <p class="text-2xl font-bold">15</p>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="bg-white rounded-lg shadow p-6">
+                              <div class="flex items-center">
+                                   <div class="bg-yellow-100 p-3 rounded-full">
+                                        <i class="fas fa-money-bill-wave text-yellow-600"></i>
+                                   </div>
+                                   <div class="ml-4">
+                                        <h3 class="text-gray-500 text-sm">Today's Revenue</h3>
+                                        <p class="text-2xl font-bold">Rp 750,000</p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <!-- Parking Areas Status Component -->
+                    <div class="bg-white rounded-lg shadow mb-6">
+                         <div class="p-4 border-b border-gray-200">
+                              <h2 class="text-lg font-semibold">Parking Areas Status</h2>
+                         </div>
+                         <div class="p-4 overflow-x-auto">
+                              <table class="w-full">
+                                   <thead class="bg-gray-50">
+                                        <tr>
+                                             <th
+                                                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                  Name</th>
+                                             <th
+                                                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                  Campus</th>
+                                             <th
+                                                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                  Capacity</th>
+                                             <th
+                                                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                  Occupied</th>
+                                             <th
+                                                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                  Available</th>
+                                             <th
+                                                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                  Status</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody class="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                             <td class="px-6 py-4 whitespace-nowrap">Lot A</td>
+                                             <td class="px-6 py-4 whitespace-nowrap">Main Campus</td>
+                                             <td class="px-6 py-4 whitespace-nowrap">50</td>
+                                             <td class="px-6 py-4 whitespace-nowrap">40</td>
+                                             <td class="px-6 py-4 whitespace-nowrap">10</td>
+                                             <td class="px-6 py-4 whitespace-nowrap">
+                                                  <span
+                                                       class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Filling
+                                                       Up</span>
+                                             </td>
+                                        </tr>
+                                        <tr>
+                                             <td class="px-6 py-4 whitespace-nowrap">Lot B</td>
+                                             <td class="px-6 py-4 whitespace-nowrap">East Campus</td>
+                                             <td class="px-6 py-4 whitespace-nowrap">30</td>
+                                             <td class="px-6 py-4 whitespace-nowrap">10</td>
+                                             <td class="px-6 py-4 whitespace-nowrap">20</td>
+                                             <td class="px-6 py-4 whitespace-nowrap">
+                                                  <span
+                                                       class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Available</span>
+                                             </td>
+                                        </tr>
+                                   </tbody>
+                              </table>
+                         </div>
+                    </div>
+
+                    <!-- Recent Transactions and Vehicle Types -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                         <!-- Recent Transactions Component -->
+                         <div class="bg-white rounded-lg shadow lg:col-span-2">
+                              <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+                                   <h2 class="text-lg font-semibold">Recent Transactions</h2>
+                                   <a href="#" class="text-blue-600 hover:text-blue-800 text-sm">View All</a>
+                              </div>
+                              <div class="p-4 overflow-x-auto">
+                                   <table class="w-full">
+                                        <thead class="bg-gray-50">
+                                             <tr>
+                                                  <th
+                                                       class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                       Date</th>
+                                                  <th
+                                                       class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                       Time</th>
+                                                  <th
+                                                       class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                       Vehicle</th>
+                                                  <th
+                                                       class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                       Owner</th>
+                                                  <th
+                                                       class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                       Area</th>
+                                                  <th
+                                                       class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                       Fee</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody class="bg-white divide-y divide-gray-200">
+                                             <tr>
+                                                  <td class="px-4 py-2 whitespace-nowrap">11/05/2025</td>
+                                                  <td class="px-4 py-2 whitespace-nowrap">08:00 - 12:00</td>
+                                                  <td class="px-4 py-2 whitespace-nowrap">B 1234 ABC</td>
+                                                  <td class="px-4 py-2 whitespace-nowrap">John Doe</td>
+                                                  <td class="px-4 py-2 whitespace-nowrap">Lot A</td>
+                                                  <td class="px-4 py-2 whitespace-nowrap">Rp 50,000</td>
+                                             </tr>
+                                             <tr>
+                                                  <td class="px-4 py-2 whitespace-nowrap">11/05/2025</td>
+                                                  <td class="px-4 py-2 whitespace-nowrap">09:00 - 13:00</td>
+                                                  <td class="px-4 py-2 whitespace-nowrap">D 5678 XYZ</td>
+                                                  <td class="px-4 py-2 whitespace-nowrap">Jane Smith</td>
+                                                  <td class="px-4 py-2 whitespace-nowrap">Lot B</td>
+                                                  <td class="px-4 py-2 whitespace-nowrap">Rp 45,000</td>
+                                             </tr>
+                                        </tbody>
+                                   </table>
+                              </div>
+                         </div>
+
+                         <!-- Vehicle Types Component -->
+                         <div class="bg-white rounded-lg shadow">
+                              <div class="p-4 border-b border-gray-200">
+                                   <h2 class="text-lg font-semibold">Vehicle Types</h2>
+                              </div>
+                              <div class="p-4">
+                                   <div class="mb-4">
+                                        <div class="flex justify-between mb-1">
+                                             <span class="text-sm font-medium">Car</span>
+                                             <span class="text-sm text-gray-500">80 (67%)</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                             <div class="bg-blue-600 h-2 rounded-full" style="width: 67%"></div>
+                                        </div>
+                                   </div>
+                                   <div class="mb-4">
+                                        <div class="flex justify-between mb-1">
+                                             <span class="text-sm font-medium">Motorcycle</span>
+                                             <span class="text-sm text-gray-500">40 (33%)</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                             <div class="bg-blue-600 h-2 rounded-full" style="width: 33%"></div>
+                                        </div>
+                                   </div>
+                                   <div class="mt-6">
+                                        <h3 class="text-sm font-medium mb-3">Quick Actions</h3>
+                                        <div class="grid grid-cols-2 gap-2">
+                                             <a href="#"
+                                                  class="bg-blue-100 text-blue-700 py-2 px-3 rounded text-xs font-medium text-center hover:bg-blue-200">
+                                                  <i class="fas fa-plus-circle mr-1"></i> Add Vehicle
+                                             </a>
+                                             <a href="#"
+                                                  class="bg-green-100 text-green-700 py-2 px-3 rounded text-xs font-medium text-center hover:bg-green-200">
+                                                  <i class="fas fa-ticket-alt mr-1"></i> New Entry
+                                             </a>
+                                             <a href="#"
+                                                  class="bg-yellow-100 text-yellow-700 py-2 px-3 rounded text-xs font-medium text-center hover:bg-yellow-200">
+                                                  <i class="fas fa-sign-out-alt mr-1"></i> Process Exit
+                                             </a>
+                                             <a href="#"
+                                                  class="bg-purple-100 text-purple-700 py-2 px-3 rounded text-xs font-medium text-center hover:bg-purple-200">
+                                                  <i class="fas fa-chart-line mr-1"></i> Reports
+                                             </a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </main>
+
+     </div>
+
+     <!-- JavaScript for Sidebar Toggle -->
+     <script>
+          const menuToggle = document.getElementById('menu-toggle');
+          const sidebar = document.getElementById('sidebar');
+
+          menuToggle.addEventListener('click', () => {
+               sidebar.classList.toggle('-translate-x-full');
+          });
+
+          document.addEventListener('click', (e) => {
+               if (!sidebar.contains(e.target) && !menuToggle.contains(e.target) && !sidebar.classList.contains('-translate-x-full')) {
+                    sidebar.classList.add('-translate-x-full');
+               }
+          });
+     </script>
+</body>
+
+</html>
